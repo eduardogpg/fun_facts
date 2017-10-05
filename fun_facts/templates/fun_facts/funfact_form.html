@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nuevo</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Sabias que!</a>
+      </div>
+      
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'fun_fact_list' %}">Listado</a></li>
+        <li class="active"><a href="{% url 'fun_fact_new' %}">Crear</a></li>
+        <li><a href="#">Busqueda</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        {% if messages %}
+          <div class="alert alert-success">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <br>
+        <br>
+        
+        <form method="post" action="#">
+          {% csrf_token %}
+          {% include "includes/_forms.html" with form=form only %}
+          <div class="row control-group">
+            <input type="submit" class="btn btn-info" value="Crear">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <footer>
+      <div class="container">
+        <div class="row">
+          <p class="copyright text-muted">&copy; Sabias que!</p>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
