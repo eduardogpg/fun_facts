@@ -42,10 +42,11 @@
         {% for object in object_list%}
            <!--  #FBFBF4 -->
           <div class="card card-block">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <h4 class="card-title"> {{ object.title.title }}</h4>
+            <p class="card-text"> {{ object.description_format }}</p>
+            <a href="{% url 'fun_fact_detail' object.pk %}" class="card-link">Mostrar</a>
+            <a href="{% url 'fun_fact_update' object.pk %}" class="card-link">Editar</a>
+            <a href="{% url 'fun_fact_delete' object.pk %}" class="card-link">Eliminar</a>
           </div>
 
           <hr>

@@ -10,10 +10,13 @@ class FunFact(models.Model):
   its_true =  models.BooleanField(default=True)
   created_at = models.DateTimeField(auto_now=True)
   updated_at = models.DateTimeField(auto_now=True)
-
+  
   def __str__(self):
     return self.title
 
+  def description_format(self, max=100):
+    return self.description[:max] if len(self.description) < max else self.description[:max] + "..."
+    
 class Tag(models.Model):
   title = models.CharField(max_length=50)
   color = models.CharField(max_length=10)

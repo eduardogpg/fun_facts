@@ -2,17 +2,20 @@ from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
 
+from django.views.generic import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 
 from django.contrib.messages.views import SuccessMessageMixin
+
+from django,views.generic import DeleteView
 
 from .models import FunFact
 from .forms import FunFactForm
 
 class FunFactListView(ListView):
   model = FunFact
-  paginate_by = 2
+  paginate_by = 10
 
   def get_context_data(self, **kwargs):
     context = super(FunFactListView, self).get_context_data(**kwargs)
@@ -38,3 +41,17 @@ class FunFactCreate(SuccessMessageMixin, CreateView):
     self.object = form.save(commit=False)
     #self.object.author = self.request.user
     return super(FunFactCreate, self).form_valid(form)
+
+class FunFactDetailView(DetailView):
+  model = FunFact
+
+  def get_context_data(self, **kwargs):
+    context = super(FunFactDetailView, self).get_context_data(**kwargs)
+    return context
+
+
+class FunFactDeleteView(DeleteView):
+
+  def get_object(self, queryset=None):
+    obj =  syper(FunFactDeleteView, self).get_object
+    
