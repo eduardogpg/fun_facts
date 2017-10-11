@@ -45,26 +45,33 @@
             <h4 class="card-title"> {{ object.title.title }}</h4>
             <p class="card-text"> {{ object.description_format }}</p>
             <a href="{% url 'fun_fact_detail' object.pk %}" class="card-link">Mostrar</a>
-            <a href="{% url 'fun_fact_update' object.pk %}" class="card-link">Editar</a>
-            <a href="{% url 'fun_fact_delete' object.pk %}" class="card-link">Eliminar</a>
+            <a href="{% url 'fun_fact_edit' object.pk %}" class="card-link">Editar</a>
           </div>
-
           <hr>
-
         {% endfor %}
 
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
+  
   <hr>
 
   <footer>
-      <div class="container">
-        <div class="row">
-          <p class="copyright text-muted">&copy; Sabias que!</p>
-        </div>
+    <div class="container">
+      <div class="row">
+        <p class="copyright text-muted">&copy; Sabias que!</p>
       </div>
-    </footer>
+    </div>
+  </footer>
 
 </body>
 </html>
