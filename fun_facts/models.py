@@ -10,7 +10,8 @@ class FunFact(models.Model):
   its_true =  models.BooleanField(default=True)
   created_at = models.DateTimeField(auto_now=True)
   updated_at = models.DateTimeField(auto_now=True)
-  
+  can_be_confirmed = models.BooleanField(default=True)
+
   def __str__(self):
     return self.title
 

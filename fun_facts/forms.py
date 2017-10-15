@@ -33,7 +33,7 @@ class FunFactForm(forms.ModelForm):
                           validators=[validate_description],
                           widget=forms.Textarea(attrs=bootstrap_class))
   
-  is_true = forms.BooleanField(label='Verdadero',
+  is_true = forms.BooleanField(label='Verdadero', required=False,
                           widget=forms.CheckboxInput())
 
   def __init__(self, *args, **kwargs):
